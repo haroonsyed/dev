@@ -1,0 +1,78 @@
+@import "colors.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.1rem;
+    min-height: 0;
+    margin: 0; 
+    padding: 0;
+}
+
+#window, 
+#hyprland-window {
+    margin: 0px 10px 0px 10px; 
+}
+
+#window {
+    margin-top: 7px;
+}
+
+/* Define the keyframes (this should still work) */
+@keyframes scroll {
+    0% { background-position: 0% 50%; } 
+    100% { background-position: 100% 50%; } 
+}
+
+window#waybar {
+    background: transparent;
+    /*background-image: linear-gradient(
+        to top,
+        rgba(0,0,0, 0.0) 0%,   
+        rgba(0, 0, 0, 0.25) 100%     
+    );
+    */
+    border-bottom: 0px;
+    color: @on_primary;
+}
+
+tooltip {
+  background: @secondary;
+  border-radius: 10px;
+}
+tooltip label {
+  color: @on_secondary;
+}
+
+#workspaces button {
+    margin-top: 5px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    color: @on_primary;
+    background-color: transparent;
+}
+
+#workspaces button:hover {
+    background-color: @secondary;
+}
+
+#workspaces button.active {
+    transition: background-color 0.4s ease-in;
+    background-color: @primary;
+}
+
+
+#clock,
+#battery,
+#pulseaudio,
+#network {
+    margin-top: 5px;
+    padding: 2px 12px 2px 12px;
+    margin-right: 8px;
+    background-color: @primary;
+    color: @on_primary;
+    border-radius: 100px;
+}
