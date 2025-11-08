@@ -1,0 +1,93 @@
+{
+  "bar.customModules.storage.paths": [
+    "/"
+  ],
+  "theme.bar.floating": false,
+  "menus.clock.time.military": false,
+  "menus.clock.weather.enabled": false,
+  "bar.autoHide": "never",
+  "theme.bar.buttons.enableBorders": false,
+  "theme.bar.border.location": "none",
+  "theme.bar.menus.monochrome": false,
+  "wallpaper.image": "/home/haroonsyed/Pictures/lotr-1.jpg",
+  "wallpaper.enable": true,
+  "theme.bar.menus.opacity": 90,
+  "theme.matugen": true,
+  "theme.matugen_settings.mode": "dark",
+  "theme.bar.transparent": true,
+  "theme.bar.opacity": 100,
+  "theme.bar.buttons.background_opacity": 50,
+  "theme.bar.buttons.background_hover_opacity": 100,
+  "theme.bar.buttons.opacity": 70,
+  "theme.bar.buttons.style": "default",
+  "theme.osd.opacity": 100,
+  "bar.workspaces.show_icons": false,
+  "bar.workspaces.show_numbered": false,
+  "bar.workspaces.showWsIcons": true,
+  "bar.workspaces.showApplicationIcons": true,
+  "theme.bar.buttons.windowtitle.enableBorder": false,
+  "bar.windowtitle.custom_title": true,
+  "bar.workspaces.numbered_active_indicator": "highlight",
+  "theme.bar.buttons.workspaces.smartHighlight": true,
+  "bar.workspaces.reverse_scroll": false,
+  "bar.workspaces.applicationIconOncePerWorkspace": true,
+  "bar.launcher.autoDetectIcon": true,
+  "theme.bar.buttons.dashboard.enableBorder": false,
+  "bar.layouts": {
+    "0": {
+      "left": [
+        "windowtitle"
+      ],
+      "middle": [
+        "workspaces"
+      ],
+      "right": [
+        "volume",
+        "network",
+        "bluetooth",
+        "battery",
+        "systray",
+        "clock",
+        "notifications"
+      ]
+    },
+    "1": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    },
+    "2": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    }
+  },
+  "theme.matugen_settings.variation": "monochrome_2",
+  "theme.matugen_settings.contrast": 0,
+  "theme.matugen_settings.scheme_type": "tonal-spot",
+  "theme.bar.menus.background": "#11111b",
+  "theme.bar.buttons.padding_x": "0.7rem",
+  "theme.bar.outer_spacing": "5px",
+  "theme.bar.buttons.y_margins": "0.1em",
+  "theme.bar.buttons.radius": "0.3em"
+}

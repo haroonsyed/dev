@@ -1,9 +1,10 @@
 /*
+!fuzzel/
 !hypr/
+!hyprpanel/
 !kitty/
 !matugen/
-!waybar/
-!fuzzel/
 !nixos/
+!waybar/
 !.gitignore
 !readme.md
