@@ -99,6 +99,7 @@
     # Dev
     git
     pkgs.tldr
+    pkgs.trash-cli
 
     # Hyprland
     pkgs.kitty
@@ -107,7 +108,7 @@
     pkgs.swww
     pkgs.fuzzel
     pkgs.wl-clipboard
-    pkgs.cliphist   
+    pkgs.cliphist
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

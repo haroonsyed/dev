@@ -68,6 +68,7 @@ tooltip label {
 #clock,
 #battery,
 #pulseaudio,
+#bluetooth,
 #network {
     margin-top: 5px;
     padding: 2px 12px 2px 12px;
