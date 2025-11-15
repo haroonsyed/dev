@@ -48,7 +48,7 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-
+  
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -128,7 +128,7 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 
   hardware.nvidia.prime = {
@@ -147,6 +147,11 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  environment.localBinInPath = true;
+  virtualisation.docker.enable = true;
+  users.extraGroups.docker.members = [ "haroonsyed" ];
+  hardware.nvidia-container-toolkit.enable = true;
+  programs.nix-ld.enable = true;
   users.users.haroonsyed = {
     isNormalUser = true;
     description = "haroonsyed";
@@ -157,12 +162,21 @@
       pkgs.moonlight-qt
       pkgs.prismlauncher
       pkgs.vscode
+      pkgs.fzf
+      pkgs.zellij
+
+      # Neovim setup
+      pkgs.neovim
     ];
   };
 
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # Allow flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  programs.direnv.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -176,6 +190,7 @@
     pkgs.trash-cli
     pkgs.btop
     pkgs.grimblast
+    pkgs.cudaPackages.cudatoolkit
 
     # Hyprland
     pkgs.kitty
@@ -186,10 +201,14 @@
     pkgs.cliphist
     pkgs.hyprpanel
     pkgs.power-profiles-daemon
+    pkgs.hyprlock
+    pkgs.hyprpolkitagent
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
     nerd-fonts.jetbrains-mono
   ];
 
