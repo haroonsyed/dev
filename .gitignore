@@ -4,6 +4,6 @@
 !hyprpanel/
 !kitty/
 !matugen/
-!nixos/
+!nixos/configuration.nix
 !.gitignore
 !readme.md
