@@ -202,6 +202,7 @@
     pkgs.hyprpanel
     pkgs.power-profiles-daemon
     pkgs.hyprlock
+    pkgs.hypridle
     pkgs.hyprpolkitagent
   ];
 
