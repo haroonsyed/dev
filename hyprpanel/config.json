@@ -5,11 +5,11 @@
   "theme.bar.floating": false,
   "menus.clock.time.military": false,
   "menus.clock.weather.enabled": false,
-  "bar.autoHide": "never",
+  "bar.autoHide": "fullscreen",
   "theme.bar.buttons.enableBorders": false,
   "theme.bar.border.location": "none",
   "theme.bar.menus.monochrome": false,
-  "wallpaper.image": "/home/haroonsyed/Pictures/lotr-1.jpg",
+  "wallpaper.image": "/home/haroonsyed/Pictures/multiple-display-mountains-snow-nature-wallpaper-c1b4ba2a902ec5b27032d3c4aefe604d.jpg",
   "wallpaper.enable": true,
   "theme.bar.menus.opacity": 90,
   "theme.matugen": true,
@@ -53,30 +53,17 @@
     },
     "1": {
       "left": [
-        "dashboard",
-        "workspaces",
         "windowtitle"
       ],
       "middle": [
-        "media"
+        "workspaces"
       ],
       "right": [
         "volume",
-        "clock",
-        "notifications"
-      ]
-    },
-    "2": {
-      "left": [
-        "dashboard",
-        "workspaces",
-        "windowtitle"
-      ],
-      "middle": [
-        "media"
-      ],
-      "right": [
-        "volume",
+        "network",
+        "bluetooth",
+        "battery",
+        "systray",
         "clock",
         "notifications"
       ]
@@ -89,5 +76,7 @@
   "theme.bar.buttons.padding_x": "0.7rem",
   "theme.bar.outer_spacing": "5px",
   "theme.bar.buttons.y_margins": "0.1em",
-  "theme.bar.buttons.radius": "0.3em"
+  "theme.bar.buttons.radius": "0.3em",
+  "bar.workspaces.monitorSpecific": true,
+  "theme.osd.enable": true
 }
