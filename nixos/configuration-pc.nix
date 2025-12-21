@@ -132,17 +132,17 @@
     package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 
-  hardware.nvidia.prime = {
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
-    };
-
-		# Make sure to use the correct Bus ID values for your system!
-		# intelBusId = "PCI:0:2:0";
-		nvidiaBusId = "PCI:1:0:0";
-		amdgpuBusId = "PCI:7:0:0";
-	};
+  # hardware.nvidia.prime = {
+  #   offload = {
+  #     enable = true;
+  #     enableOffloadCmd = true;
+  #   };
+  # 
+	# 	# Make sure to use the correct Bus ID values for your system!
+	# 	# intelBusId = "PCI:0:2:0";
+	# 	nvidiaBusId = "PCI:1:0:0";
+	# 	amdgpuBusId = "PCI:7:0:0";
+	# };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -183,6 +183,14 @@
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   environment.sessionVariables.STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/haroonsyed/.steam/root/compatibilitytools.d";
+
+  # Game stream
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    capSysAdmin = true;
+    openFirewall = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

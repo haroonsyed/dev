@@ -1,9 +1,10 @@
-/*
+*
 !fuzzel/
 !hypr/
 !hyprpanel/
 !kitty/
 !matugen/
-!nixos/configuration.nix
+!nixos/
+nixos/configuration-hardware.nix
 !.gitignore
 !readme.md
