@@ -168,13 +168,6 @@
 
       # Gaming
       pkgs.protonup-ng
-      lutris
-      (lutris.override {
-        extraPkgs = pkgs: [
-          # List package dependencies here
-        ];
-      })
-
 
       # Neovim setup
       pkgs.neovim

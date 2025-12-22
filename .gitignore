@@ -7,4 +7,9 @@
 !nixos/
 !.gitignore
 !readme.md
+!sunshine/
+!sunshine/apps.json
 nixos/configuration-hardware.nix
+sunshine/credentials/
+sunshine/sunshine_state.json
+sunshine/sunshine.log

@@ -168,13 +168,6 @@
 
       # Gaming
       pkgs.protonup-ng
-      lutris
-      (lutris.override {
-        extraPkgs = pkgs: [
-          # List package dependencies here
-        ];
-      })
-
 
       # Neovim setup
       pkgs.neovim
@@ -226,6 +219,15 @@
     pkgs.hypridle
     pkgs.hyprpolkitagent
   ];
+  environment.sessionVariables = {
+    HYPR_PLUGIN_DIR = pkgs.symlinkJoin {
+      name = "hyprland-plugins";
+      paths = with pkgs.hyprlandPlugins; [
+        hyprscrolling
+        #...plugins
+      ];
+    };
+  };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   fonts.packages = with pkgs; [

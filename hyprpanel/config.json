@@ -36,6 +36,7 @@
   "bar.layouts": {
     "*": {
       "left": [
+        "dashboard",
         "windowtitle"
       ],
       "middle": [
