@@ -5,6 +5,6 @@
 !kitty/
 !matugen/
 !nixos/
-nixos/configuration-hardware.nix
 !.gitignore
 !readme.md
+nixos/configuration-hardware.nix
