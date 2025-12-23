@@ -15,7 +15,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -211,6 +212,15 @@
     pkgs.hypridle
     pkgs.hyprpolkitagent
   ];
+  environment.sessionVariables = {
+    HYPR_PLUGIN_DIR = pkgs.symlinkJoin {
+      name = "hyprland-plugins";
+      paths = with pkgs.hyprlandPlugins; [
+        hyprscrolling
+        #...plugins
+      ];
+    };
+  };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   fonts.packages = with pkgs; [

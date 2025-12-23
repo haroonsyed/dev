@@ -15,7 +15,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -131,18 +132,6 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.production;
   };
-
-  # hardware.nvidia.prime = {
-  #   offload = {
-  #     enable = true;
-  #     enableOffloadCmd = true;
-  #   };
-  # 
-	# 	# Make sure to use the correct Bus ID values for your system!
-	# 	# intelBusId = "PCI:0:2:0";
-	# 	nvidiaBusId = "PCI:1:0:0";
-	# 	amdgpuBusId = "PCI:7:0:0";
-	# };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
