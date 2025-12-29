@@ -138,9 +138,6 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   environment.localBinInPath = true;
-  virtualisation.docker.enable = true;
-  users.extraGroups.docker.members = [ "haroonsyed" ];
-  hardware.nvidia-container-toolkit.enable = true;
   programs.nix-ld.enable = true;
   users.users.haroonsyed = {
     isNormalUser = true;
@@ -194,6 +191,9 @@
     pkgs.btop
     pkgs.grimblast
     pkgs.cudaPackages.cudatoolkit
+    pkgs.nixos-generators
+    notepad-next
+    filezilla
 
     # Hyprland
     pkgs.kitty
@@ -207,6 +207,9 @@
     pkgs.hyprlock
     pkgs.hypridle
     pkgs.hyprpolkitagent
+
+    # Virtualization
+    pkgs.kubectl
   ];
   environment.sessionVariables = {
     HYPR_PLUGIN_DIR = pkgs.symlinkJoin {
@@ -256,4 +259,19 @@
   # Haroon Configurations
   # Wayland/Hyprland setup
   programs.hyprland.enable = true;
+
+
+  # Virtualization (Dedicated VM setups)
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["haroonsyed"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
+  # Kubernetes
+  services.k3s = {
+    enable = true;
+    role = "server";
+    extraFlags = "--write-kubeconfig-mode 644";
+  };
+  environment.variables.KUBECONFIG = "/etc/rancher/k3s/k3s.yaml";
 }
