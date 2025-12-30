@@ -295,7 +295,6 @@
     role = "server";
     extraFlags = [
       "--write-kubeconfig-mode=600"
-      "--disable=servicelb"
       "--disable=traefik"
       "--secrets-encryption"
       "--kube-apiserver-arg=admission-control-config-file=/etc/rancher/k3s/server/psa.yaml"
