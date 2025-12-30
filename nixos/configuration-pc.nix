@@ -267,11 +267,42 @@
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 
+  # Docker
+  virtualisation.docker.enable = true;
+  users.extraGroups.docker.members = [ "haroonsyed" ];
+
   # Kubernetes
+  environment.etc."rancher/k3s/server/psa.yaml".text = ''
+    apiVersion: apiserver.config.k8s.io/v1
+    kind: AdmissionConfiguration
+    plugins:
+    - name: PodSecurity
+      configuration:
+        apiVersion: pod-security.admission.config.k8s.io/v1
+        kind: PodSecurityConfiguration
+        defaults:
+          enforce: "restricted"
+          enforce-version: "latest"
+          warn: "restricted"
+          warn-version: "latest"
+        exemptions:
+          usernames: []
+          runtimeClasses: []
+          namespaces: [kube-system, argocd]
+  '';
   services.k3s = {
     enable = true;
     role = "server";
-    extraFlags = "--write-kubeconfig-mode 644";
+    extraFlags = [
+      "--write-kubeconfig-mode=600"
+      "--disable=servicelb"
+      "--disable=traefik"
+      "--secrets-encryption"
+      "--kube-apiserver-arg=admission-control-config-file=/etc/rancher/k3s/server/psa.yaml"
+      "--kubelet-arg=pod-max-pids=2048"
+      "--kube-apiserver-arg=enable-admission-plugins=NodeRestriction"
+      # "--kubelet-arg=tls-cipher-suites=TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305"
+    ];
   };
   environment.variables.KUBECONFIG = "/etc/rancher/k3s/k3s.yaml";
 }
