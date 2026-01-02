@@ -288,7 +288,7 @@
         exemptions:
           usernames: []
           runtimeClasses: []
-          namespaces: [kube-system, argocd]
+          namespaces: [kube-system]
   '';
   services.k3s = {
     enable = true;
