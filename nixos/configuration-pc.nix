@@ -295,17 +295,27 @@
     role = "server";
     extraFlags = [
       "--write-kubeconfig-mode=600"
-      "--disable=traefik"
       "--secrets-encryption"
       "--kube-apiserver-arg=admission-control-config-file=/etc/rancher/k3s/server/psa.yaml"
       "--kubelet-arg=pod-max-pids=2048"
       "--kube-apiserver-arg=enable-admission-plugins=NodeRestriction"
       "--kubelet-arg=authentication-token-webhook=true"
       "--kubelet-arg=authorization-mode=Webhook"
-      # "--kubelet-arg=tls-cipher-suites=TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305"
+
+      # CILIUM stuff
+      "--disable=traefik,flannel,servicelb"
+      "--flannel-backend=none"
+      "--disable-network-policy"
+      "--disable-kube-proxy"
     ];
     
     # TODO: Add manifest for helm charts of argocd
+  };
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 6443 ]; # NEVER PORT FORWARD THIS TO THE INTERNET! Need to investigate why cilium even needs it open.
+    allowedUDPPorts = [  ];
+    checkReversePath = false; # needed for cilium
   };
   environment.variables.KUBECONFIG = "/etc/rancher/k3s/k3s.yaml";
 }
