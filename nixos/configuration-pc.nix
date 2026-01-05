@@ -313,8 +313,13 @@
   };
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 6443 ]; # NEVER PORT FORWARD THIS TO THE INTERNET! Need to investigate why cilium even needs it open.
-    allowedUDPPorts = [  ];
+    # allowedTCPPorts = [ 6443 4244 10250 ]; # K3s API server and metrics. NEVER PORT FORWARD THESE THROUGH ROUTER
+    # allowedUDPPorts = [ 8472 ]; # Cilium VXLAN port
+
+    # Enable cilium overlay network for self communication
+    extraCommands = ''
+      iptables -A INPUT -s 10.42.0.0/16 -j ACCEPT # Overlay network
+    '';
     checkReversePath = false; # needed for cilium
   };
   environment.variables.KUBECONFIG = "/etc/rancher/k3s/k3s.yaml";
