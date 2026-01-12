@@ -150,9 +150,6 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   environment.localBinInPath = true;
-  virtualisation.docker.enable = true;
-  users.extraGroups.docker.members = [ "haroonsyed" ];
-  hardware.nvidia-container-toolkit.enable = true;
   programs.nix-ld.enable = true;
   users.users.haroonsyed = {
     isNormalUser = true;
@@ -198,6 +195,7 @@
     pkgs.btop
     pkgs.grimblast
     pkgs.cudaPackages.cudatoolkit
+    notepad-next
 
     # Hyprland
     pkgs.kitty
@@ -260,4 +258,10 @@
   # Haroon Configurations
   # Wayland/Hyprland setup
   programs.hyprland.enable = true;
+
+  # Virtualization
+  
+  # Docker
+  virtualisation.docker.enable = true;
+  users.extraGroups.docker.members = [ "haroonsyed" ];
 }
