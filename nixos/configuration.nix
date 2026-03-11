@@ -210,15 +210,6 @@
     pkgs.hypridle
     pkgs.hyprpolkitagent
   ];
-  environment.sessionVariables = {
-    HYPR_PLUGIN_DIR = pkgs.symlinkJoin {
-      name = "hyprland-plugins";
-      paths = with pkgs.hyprlandPlugins; [
-        hyprscrolling
-        #...plugins
-      ];
-    };
-  };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   fonts.packages = with pkgs; [
