@@ -148,7 +148,7 @@
       pkgs.discord
       pkgs.moonlight-qt
       pkgs.prismlauncher
-      pkgs.vscode
+      pkgs.vscodium
       pkgs.fzf
       pkgs.zellij
 
@@ -198,7 +198,7 @@
     # Hyprland
     pkgs.kitty
     pkgs.matugen
-    pkgs.swww
+    pkgs.awww
     pkgs.fuzzel
     pkgs.wl-clipboard
     pkgs.cliphist
@@ -211,6 +211,10 @@
     # Virtualization
     pkgs.kubectl
   ];
+
+  environment.shellAliases = {
+    code = "codium";
+  };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   fonts.packages = with pkgs; [
