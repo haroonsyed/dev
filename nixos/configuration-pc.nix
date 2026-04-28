@@ -92,6 +92,12 @@
     };
   };
 
+  # Sleep settings
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
+
   # NVIDIA GPU CONFIGURATION: https://nixos.wiki/wiki/Nvidia
   # Enable OpenGL
   hardware.graphics = {
@@ -171,6 +177,9 @@
     openFirewall = true;
   };
 
+  # VPN
+  services.tailscale.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -183,6 +192,7 @@
   environment.systemPackages = with pkgs; [
     # Base
     pkgs.google-chrome
+    pkgs.tailscale
 
     # Dev
     git
@@ -234,7 +244,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -307,6 +317,8 @@
     # TODO: Add manifest for helm charts of argocd
   };
   networking.firewall = {
+    allowedTCPPorts = [25565];
+    allowedUDPPorts = [41641];
     enable = true;
     # allowedTCPPorts = [ 6443 4244 10250 ]; # K3s API server and metrics. NEVER PORT FORWARD THESE THROUGH ROUTER
     # allowedUDPPorts = [ 8472 ]; # Cilium VXLAN port

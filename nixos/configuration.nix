@@ -163,6 +163,7 @@
       pkgs.vscodium
       pkgs.fzf
       pkgs.zellij
+      pkgs.tailscale
 
       # Gaming
       pkgs.protonup-ng
