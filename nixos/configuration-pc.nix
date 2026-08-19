@@ -224,7 +224,7 @@
     pkgs.fuzzel
     pkgs.wl-clipboard
     pkgs.cliphist
-    pkgs.hyprpanel
+    pkgs.wayle
     pkgs.power-profiles-daemon
     pkgs.hyprlock
     pkgs.hypridle

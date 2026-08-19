@@ -1,0 +1,40 @@
+# Wayle configuration file
+[bar]
+scale = 0.699999988079071
+bg = "transparent"
+
+[[bar.layout]]
+monitor = "*"
+show = true
+left = [
+    "separator",
+    "dashboard",
+    "separator",
+    "separator",
+    "window-title",
+]
+center = ["hyprland-workspaces"]
+right = [
+    "volume",
+    "network",
+    "bluetooth",
+    "battery",
+    "clock",
+    "notifications",
+    "systray",
+]
+
+[styling]
+theme-provider = "matugen"
+
+[modules.hyprland-workspaces]
+monitor-specific = false
+app-icons-show = true
+
+[modules.separator]
+color = "transparent"
+
+[wallpaper]
+cycling-enabled = true
+cycling-directory = "/home/haroonsyed/Pictures/77a31c1e419c0e786de81a7a7988c3eb.jpg"
+cycling-same-image = true

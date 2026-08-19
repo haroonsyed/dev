@@ -1,6 +1,8 @@
 *
 !fuzzel/
 !hypr/
+!wayle/
+!wayle/**
 !hyprpanel/
 !kitty/
 !matugen/
@@ -13,3 +15,5 @@ nixos/configuration-hardware.nix
 sunshine/credentials/
 sunshine/sunshine_state.json
 sunshine/sunshine.log
+wayle/runtime.toml
+wayle/schema.json
