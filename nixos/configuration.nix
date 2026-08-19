@@ -176,6 +176,7 @@
       pkgs.fzf
       pkgs.zellij
       pkgs.tailscale
+      pkgs.vlc
 
       # Gaming
       pkgs.protonup-ng
@@ -187,6 +188,9 @@
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   environment.sessionVariables.STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/haroonsyed/.steam/root/compatibilitytools.d";
+  
+  # VPN
+  services.tailscale.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -222,6 +226,9 @@
     pkgs.hyprlock
     pkgs.hypridle
     pkgs.hyprpolkitagent
+
+    # Gaming
+    heroic
   ];
 
   environment.shellAliases = {
