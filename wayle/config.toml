@@ -15,11 +15,12 @@ left = [
 ]
 center = ["hyprland-workspaces"]
 right = [
-    "volume",
+    "clock",
     "network",
     "bluetooth",
+    "volume",
+    "brightness",
     "battery",
-    "clock",
     "notifications",
     "systray",
 ]
