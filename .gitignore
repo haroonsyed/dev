@@ -6,6 +6,7 @@
 !hyprpanel/
 !kitty/
 !matugen/
+!matugen/**
 !nixos/
 !.gitignore
 !readme.md

@@ -1,3 +1,5 @@
+imports = ["./colors.toml"]
+
 # Wayle configuration file
 [bar]
 scale = 0.699999988079071
@@ -35,7 +37,38 @@ app-icons-show = true
 [modules.separator]
 color = "transparent"
 
+[modules.battery]
+border-color = "accent"
+icon-bg-color = "accent"
+label-color = "accent"
+
+[modules.bluetooth]
+icon-bg-color = "accent"
+label-color = "accent"
+
+[modules.brightness]
+border-color = "accent"
+icon-bg-color = "accent"
+label-color = "accent"
+
+[modules.dashboard]
+border-color = "border-accent"
+icon-bg-color = "accent"
+
+[modules.notifications]
+border-color = "accent"
+icon-bg-color = "accent"
+label-color = "accent"
+
+[modules.volume]
+icon-bg-color = "accent"
+label-color = "accent"
+
+[modules.window-title]
+border-color = "accent"
+icon-bg-color = "border-accent"
+label-color = "accent"
+
 [wallpaper]
-cycling-enabled = true
-cycling-directory = "/home/haroonsyed/Pictures/77a31c1e419c0e786de81a7a7988c3eb.jpg"
-cycling-same-image = true
+cycling-directory = "/home/haroonsyed/Pictures/"
+cycling-interval-mins = 1
