@@ -195,4 +195,12 @@
 
   # Virtualization
   virtualisation.docker.enable = true;
+
+  # Run the garbage collector weekly
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 90d";
+  };
 }
