@@ -54,6 +54,7 @@ label-color = "accent"
 [modules.dashboard]
 border-color = "border-accent"
 icon-bg-color = "accent"
+dropdown-logout-command = "uwsm stop"
 
 [modules.notifications]
 border-color = "accent"
