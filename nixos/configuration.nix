@@ -47,7 +47,15 @@
   };
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    settings = {
+      Autologin = {
+        Session = "hyprland-uwsm.desktop"; # Set as default
+      };
+    };
+  };
   services.desktopManager.plasma6.enable = true;
   
 
@@ -168,7 +176,6 @@
     description = "haroonsyed";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kdePackages.kate
       pkgs.discord
       pkgs.moonlight-qt
       pkgs.prismlauncher
@@ -272,7 +279,11 @@
 
   # Haroon Configurations
   # Wayland/Hyprland setup
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    withUWSM = true;
+  };
 
   # Virtualization
   
