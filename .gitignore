@@ -13,6 +13,8 @@
 !readme.md
 !sunshine/
 !sunshine/apps.json
+!quickshell/
+!quickshell/black-screensaver.qml
 sunshine/credentials/
 sunshine/sunshine_state.json
 sunshine/sunshine.log

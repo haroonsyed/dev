@@ -127,18 +127,38 @@
     description = "haroonsyed";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
-      discord
-      moonlight-qt
-      prismlauncher
+
+      # Dev TODO: See how much can be managed via devbox global (or similar global versioned package manager)
       vscodium
       fzf
       zellij
+      git
+      tldr
+      trash-cli
+      btop
+      kitty
+      wl-clipboard
+      cliphist
+      fuzzel
 
       # Gaming
       protonup-ng
+      discord
+      moonlight-qt
+      prismlauncher
 
       # Neovim setup
       neovim
+
+      # DE
+      matugen
+      wayle
+      awww
+      
+      # General Applications
+      google-chrome
+      grimblast
+      notepad-next
     ];
   };
   programs.steam.enable = true;
@@ -155,28 +175,16 @@
 
   # Base System Packages
   environment.systemPackages = with pkgs; [
-    google-chrome
-    git
-    tldr
-    trash-cli
-    btop
-    grimblast
     cudaPackages.cudatoolkit
-    notepad-next
-    kitty
-    matugen
-    awww
-    fuzzel
-    wl-clipboard
-    cliphist
-    wayle
     power-profiles-daemon
     hyprlock
     hypridle
     hyprpolkitagent
   ];
 
-  environment.shellAliases = { code = "codium"; };
+  environment.shellAliases = { 
+    code = "codium"; 
+  };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
