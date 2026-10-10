@@ -39,4 +39,8 @@
     grimblast
     notepad-next
   ];
+
+  home.shellAliases = {
+    code = "codium";
+  };
 }
