@@ -126,40 +126,6 @@
     isNormalUser = true;
     description = "haroonsyed";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [
-
-      # Dev TODO: See how much can be managed via devbox global (or similar global versioned package manager)
-      vscodium
-      fzf
-      zellij
-      git
-      tldr
-      trash-cli
-      btop
-      kitty
-      wl-clipboard
-      cliphist
-      fuzzel
-
-      # Gaming
-      protonup-ng
-      discord
-      moonlight-qt
-      prismlauncher
-
-      # Neovim setup
-      neovim
-
-      # DE
-      matugen
-      wayle
-      awww
-      
-      # General Applications
-      google-chrome
-      grimblast
-      notepad-next
-    ];
   };
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
