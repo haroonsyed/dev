@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: 
+let
+  mv = inputs.multiverse.multiverse.${pkgs.system};
+in
+{
   
   home.username = "haroonsyed";
   home.homeDirectory = "/home/haroonsyed";
@@ -8,6 +12,9 @@
   
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
+    # TODO: Separate out gaming and dev stuff
+    # That way I could clone and use at work
+
     vscodium
     fzf
     zellij

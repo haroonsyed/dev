@@ -7,9 +7,10 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    multiverse.url = "github:fzakaria/nixpkgs-multiverse";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, multiverse, ... }@inputs:
     let
       system = "x86_64-linux";
       homeManagerModule = {
@@ -18,6 +19,7 @@
           useUserPackages = true;
           useGlobalPkgs = true;
           backupFileExtension = "backup";
+          extraSpecialArgs = { inherit inputs; };
           users.haroonsyed = ./home.nix;
         };
       };
