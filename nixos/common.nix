@@ -141,7 +141,6 @@
 
   # Base System Packages
   environment.systemPackages = with pkgs; [
-    cudaPackages.cudatoolkit
     power-profiles-daemon
     hyprlock
     hypridle
