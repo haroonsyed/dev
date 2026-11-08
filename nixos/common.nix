@@ -21,13 +21,22 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # SDDM & Display
-  services.displayManager.sddm = {
+  services.greetd = {
     enable = true;
-    wayland.enable = true;
-    settings.Autologin.Session = "hyprland-uwsm.desktop";
+    settings = {
+      initial_session = {
+        command = "uwsm start hyprland-uwsm.desktop";
+        user = "haroonsyed";
+      };
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd 'uwsm start hyprland-uwsm.desktop'";
+        user = "greeter";
+      };
+    };
   };
-  services.desktopManager.plasma6.enable = true;
+
+  # Battery Reporting
+  services.upower.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -145,6 +154,12 @@
     hyprlock
     hypridle
     hyprpolkitagent
+
+    # File Explorer Stuff
+    kdePackages.dolphin      # The Dolphin file manager
+    kdePackages.kio-extras   # Necessary backend for Dolphin (network drives, previews)
+    kdePackages.ark          # Archive manager for extracting zip/tar files
+    kdePackages.breeze       # Breeze cursor and icon themes
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

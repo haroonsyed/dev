@@ -26,6 +26,9 @@ in
     wl-clipboard
     cliphist
     fuzzel
+    brightnessctl
+    pamixer
+    playerctl
 
     # Gaming
     protonup-ng
@@ -46,6 +49,13 @@ in
     grimblast
     notepad-next
   ];
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.kdePackages.breeze;
+    name = "breeze_cursors";
+    size = 24;
+  };
 
   home.shellAliases = {
     code = "codium";
