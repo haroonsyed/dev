@@ -180,6 +180,7 @@
 
   # Virtualization
   virtualisation.docker.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
 
   # Run the garbage collector weekly
   nix.settings.auto-optimise-store = true;
