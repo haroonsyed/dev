@@ -29,6 +29,7 @@ in
     brightnessctl
     pamixer
     playerctl
+    lazydocker
 
     # Gaming
     protonup-ng
