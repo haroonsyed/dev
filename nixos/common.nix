@@ -134,7 +134,7 @@
   users.users.haroonsyed = {
     isNormalUser = true;
     description = "haroonsyed";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "dialout" ];
   };
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
@@ -188,5 +188,18 @@
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 90d";
+  };
+
+  # Extra caches
+  nix.settings = {
+    trusted-users = [ "root" "haroonsyed" ];
+    extra-substituters = [ 
+      "https://ros.cachix.org"
+      "https://attic.iid.ciirc.cvut.cz/ros"
+    ];
+    extra-trusted-public-keys = [ 
+      "ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo="
+      "ros:JR95vUYsShSqfA1VTYoFt1Nz6uXasm5QrcOsGry9f6Q="
+    ];
   };
 }
