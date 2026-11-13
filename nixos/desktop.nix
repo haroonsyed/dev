@@ -16,7 +16,13 @@
     enable = true;
     autoStart = true;
     capSysAdmin = true;
-    openFirewall = false;
+    openFirewall = true;
+
+    # NVENC Encoder
+    package = pkgs.sunshine.override {
+      cudaSupport = true;
+      cudaPackages = pkgs.cudaPackages;
+    };
   };
 
   # Virtualization
@@ -67,6 +73,8 @@
     allowedTCPPorts = [25565];
     allowedUDPPorts = [41641];
     enable = true;
+    trustedInterfaces = [ "tailscale0" ];
+
     # allowedTCPPorts = [ 6443 4244 10250 ]; # K3s API server and metrics. NEVER PORT FORWARD THESE THROUGH ROUTER
     # allowedUDPPorts = [ 8472 ]; # Cilium VXLAN port
 

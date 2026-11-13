@@ -162,6 +162,16 @@
     kdePackages.breeze       # Breeze cursor and icon themes
   ];
 
+  # Cache for cuda packages
+  nix.settings = { 
+    substituters = [
+      "https://cache.nixos-cuda.org"
+    ];
+    trusted-public-keys = [
+      "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+    ];
+  };
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
