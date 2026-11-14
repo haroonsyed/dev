@@ -54,6 +54,13 @@
     #media-session.enable = true;
   };
 
+  # Screen sharing
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.hyprland.default = [ "hyprland" "gtk" ];
+  };
+
   # Enable CUPS to print documents.
   services.avahi = {
     enable = true;
