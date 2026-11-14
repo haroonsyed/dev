@@ -16,7 +16,7 @@
     enable = true;
     autoStart = true;
     capSysAdmin = true;
-    openFirewall = true;
+    openFirewall = false;
 
     # NVENC Encoder
     package = pkgs.sunshine.override {
@@ -70,8 +70,14 @@
     ];
   };
   networking.firewall = {
-    allowedTCPPorts = [25565];
-    allowedUDPPorts = [41641];
+    allowedTCPPorts = [
+      25565 # Minecraft
+      47984 47989 48010 # Sunshine
+    ];
+    allowedUDPPorts = [
+      41641 # Tailscale
+      47998 47999 48000 48002 48010 # Sunshine
+    ];
     enable = true;
     trustedInterfaces = [ "tailscale0" ];
 
