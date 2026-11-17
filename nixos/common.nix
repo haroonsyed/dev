@@ -141,7 +141,7 @@
   users.users.haroonsyed = {
     isNormalUser = true;
     description = "haroonsyed";
-    extraGroups = [ "networkmanager" "wheel" "docker" "dialout" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "dialout" "uinput" ];
   };
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;

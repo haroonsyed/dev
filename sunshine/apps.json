@@ -1,34 +1,34 @@
 {
-    "apps": [
+  "env": {
+    "PATH": "$(PATH):$(HOME)/.local/bin"
+  },
+  "apps": [
+    {
+      "name": "Desktop",
+      "image-path": "desktop.png"
+    },
+    {
+      "name": "Low Res Desktop",
+      "image-path": "desktop.png",
+      "prep-cmd": [
         {
-            "image-path": "desktop.png",
-            "name": "Desktop"
-        },
-        {
-            "image-path": "desktop.png",
-            "name": "Low Res Desktop",
-            "prep-cmd": [
-                {
-                    "do": "xrandr --output HDMI-1 --mode 1920x1080",
-                    "undo": "xrandr --output HDMI-1 --mode 1920x1200"
-                }
-            ]
-        },
-        {
-            "detached": [
-                "hyprctl dispatch exec \"sudo -u haroonsyed setsid steam steam://open/bigpicture\""
-            ],
-            "image-path": "steam.png",
-            "name": "Steam Big Picture",
-            "prep-cmd": [
-                {
-                    "do": "",
-                    "undo": "hyprctl dispatch exec \"sudo -u haroonsyed setsid steam steam://close/bigpicture\""
-                }
-            ]
+          "do": "xrandr --output HDMI-1 --mode 1920x1080",
+          "undo": "xrandr --output HDMI-1 --mode 1920x1200"
         }
-    ],
-    "env": {
-        "PATH": "$(PATH):$(HOME)/.local/bin"
+      ]
+    },
+    {
+      "name": "Steam Big Picture",
+      "detached": [
+        "setsid steam steam://open/bigpicture"
+      ],
+      "prep-cmd": [
+        {
+          "do": "",
+          "undo": "setsid steam steam://close/bigpicture"
+        }
+      ],
+      "image-path": "steam.png"
     }
+  ]
 }
