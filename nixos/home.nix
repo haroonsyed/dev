@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }: 
 let
-  mv = inputs.multiverse.multiverse.${pkgs.system};
+  mv = inputs.multiverse.multiverse.${pkgs.system}.versions;
 in
 {
   
@@ -34,7 +34,7 @@ in
     # Gaming
     protonup-ng
     discord
-    moonlight-qt
+    (mv.moonlight-qt."6.2.0")
     prismlauncher
 
     # Neovim setup
