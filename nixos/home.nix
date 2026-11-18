@@ -36,6 +36,7 @@ in
     discord
     (mv.moonlight-qt."6.2.0")
     prismlauncher
+    lutris
 
     # Neovim setup
     neovim
