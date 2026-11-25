@@ -15,6 +15,10 @@
     amdgpuBusId = "PCI:7:0:0";
   };
 
+  # Power saving
+  powerManagement.enable = true;
+  services.power-profiles-daemon.enable = true;
+
   environment.systemPackages = with pkgs; [
     heroic
   ];
